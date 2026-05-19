@@ -6,14 +6,21 @@
 //     document.getElementById("incomeList").innerHTML += "<li></li>";
 // })
 
-document.getElementById("incomeBtn");
-document.getElementById("incomelist");
-document.getElementById("desc");
-document.getElementById("amount");
+let incomeBtn = document.getElementById("incomeBtn");
+let incomeList = document.getElementById("incomeList");
+let desc = document.getElementById("desc");
+let amount = document.getElementById("amount");
+let balance = document.getElementById("balance");
 
 incomeBtn.addEventListener("click" , function(){
-
-    let newIncomeListItem = document.createElement("li");
-    newIncomeListItem.innerText = desc.value, amount.value;
-    incomeList.appendChild(newIncomeListItem);
+    if (isNaN(parseInt(amount.value)) || parseInt(amount.value) < 0){
+        alert ("invalid input")
+    } else {
+        console.log(!isNaN(parseInt(amount.value)))
+        let IncomeListItem = document.createElement("li");
+        IncomeListItem.innerText = amount.value +" "+ desc.value;
+        incomeList.appendChild(IncomeListItem);
+        balance.innerHTML = parseInt(amount.value) + parseInt(balance.innerHTML);
+    }
+    
 });
