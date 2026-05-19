@@ -14,9 +14,9 @@ incomeBtn.addEventListener("click" , function(){
             alert ("ogiltigt belopp")
         } else {  
             let incomeListItem = document.createElement("li");
-            incomeListItem.innerText = desc.value +" - "+ amount.value +" kr";
+            incomeListItem.textContent = desc.value +" - "+ amount.value +" kr (Inkomst)";
             incomeList.appendChild(incomeListItem);
-            balance.innerHTML = parseInt(amount.value) + parseInt(balance.innerHTML);
+            balance.textContent = parseInt(amount.value) + parseInt(balance.textContent);
             
             // empty input fields
             desc.value = "";
@@ -32,13 +32,14 @@ expenseBtn.addEventListener("click" , function(){
             alert ("ogiltigt belopp")
         } else {
             let expenseListItem = document.createElement("li");
-            expenseListItem.innerText = desc.value +" - "+ amount.value +" kr";
+            expenseListItem.textContent = desc.value +" - "+ amount.value +" kr (Utgift)";
             expenseList.appendChild(expenseListItem);
-            balance.innerHTML = parseInt(balance.innerHTML) - parseInt(amount.value);
-            
+            balance.textContent = parseInt(balance.textContent) - parseInt(amount.value);
+
             // empty input fields
             desc.value = "";
             amount.value = "";
+            console.log(balance.value)
         }
     } 
 });
